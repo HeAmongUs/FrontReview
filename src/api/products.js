@@ -1,4 +1,4 @@
-const SLEEP_TIME = 200;
+const SLEEP_TIME = 0;
 function sleep(fn) {
   return new Promise(resolve => {
     setTimeout(() => {
@@ -9,27 +9,26 @@ function sleep(fn) {
 
 const dataService = {
   getProductsList() {
-    let products = [
+    return [
       {
         id: 'potato',
         title: 'Картошка',
         price: 49.99,
-        image: '/products/potato.jpg',
+        image: require('@/assets/shop/products/potato.jpg'),
       },
       {
         id: 'carrot',
         title: 'Морковка',
         price: 55.00,
-        image: '/products/carrot.jpg',
+        image: require('@/assets/shop/products/carrot.jpg'),
       },
       {
         id: 'cabbage',
         title: 'Капуста',
         price: 28.50,
-        image: '/products/cabbage.jpg',
+        image: require('@/assets/shop/products/cabbage.jpg'),
       }
     ];
-    return products;
   },
 };
 
@@ -38,4 +37,5 @@ const productsApi = {
     return sleep(dataService.getProductsList);
   },
 };
+
 export default productsApi;
